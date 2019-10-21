@@ -1,0 +1,6 @@
+rule cc
+  depfile = $out.d
+  deps = gcc
+  command = echo Compiling $in ... && clang -Wall -MMD -MF $out.d -o $out $in
+
+build foo: cc foo.c
