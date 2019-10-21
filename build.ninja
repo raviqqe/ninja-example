@@ -1,9 +1,9 @@
 rule dep
-  command = echo a.out: $in foo.h > $out
+  command = clang -E -MMD -MF $out $in > /dev/null
 
 rule cc
   depfile = $out.d
   command = clang -o $out $in
 
-build a.out.d: dep main.c
-build a.out: cc main.c | a.out.d
+build main.o.d: dep main.c
+build main.o: cc main.c | main.o.d
