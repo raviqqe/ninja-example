@@ -3,4 +3,4 @@ rule cc
   deps = gcc
   command = echo Compiling $in ... && clang -Wall -MMD -MF $out.d -o $out $in
 
-build foo: cc foo.c
+build a.out: cc main.c
